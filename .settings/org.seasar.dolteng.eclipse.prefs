@@ -1,0 +1,8 @@
+DaoType=S2JDBC
+DefaultResourcePath=/trad_diag/src/main/resources
+DefaultRootPackage=trad_diag
+DefaultSrcPath=/trad_diag/src/main/java
+ServletPath=trad_diag
+ViewType=SA-Struts
+WebContentsRoot=src/main/webapp
+eclipse.preferences.version=1
