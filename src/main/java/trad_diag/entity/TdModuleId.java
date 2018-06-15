@@ -3,7 +3,7 @@ package trad_diag.entity;
 /**
  * TdModuleId.java
  * 
- * @author 2018/06/18 New GOTO
+ * @author 2018/06/17 New GOTO
  */
 public enum TdModuleId {
 
