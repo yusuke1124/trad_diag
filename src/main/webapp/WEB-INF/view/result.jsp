@@ -21,10 +21,9 @@
 		<form method="post">
 			あなたは&nbsp;&nbsp;${comprehensiveType.typeName}&nbsp;&nbsp;です！<br />
 			北海道でのおすすめ職業は...<br />
-				${reccomendJob01}<br />
-				${reccomendJob02}<br />
+				${reccomendJob01}&nbsp;&nbsp;&nbsp;&nbsp;${reccomendJob02}<br />
+				${reccomendJobPicLink01}&nbsp;&nbsp;&nbsp;&nbsp;${reccomendJobPicLink02}<br />
 			<input type="submit" name="index" value="もう一度診断だ！！！" />
-
 			<%-- 保持しておく情報たち --%>
 			<input type="hidden" name="comprehensiveType" value="${comprehensiveType}" />
 		</form>

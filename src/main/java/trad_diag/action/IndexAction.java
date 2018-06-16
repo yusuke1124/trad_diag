@@ -68,7 +68,7 @@ public class IndexAction {
 	 */
 	@Execute(validator = false)
 	public String result() {
-		
+
 		//---------------------------------------------
 		// 総合タイプを分析する
 		//---------------------------------------------
@@ -95,6 +95,11 @@ public class IndexAction {
 		// タイプ別おすすめ職業をセット！
 		//---------------------------------------------
 		setReccomendJobs();
+
+		//---------------------------------------------
+		// おすすめ職業の画像リンクをセット！
+		//---------------------------------------------
+		setReccomendJobsPicLink();
 
 		return "result.jsp";
 	}
@@ -178,21 +183,56 @@ public class IndexAction {
 		if (indexForm.comprehensiveType == PersonalityTypes.LEADER) {
 			indexForm.reccomendJob01 = Profession.JOB_LEADER_01.getJobName();
 			indexForm.reccomendJob02 = Profession.JOB_LEADER_02.getJobName();
+			indexForm.reccomendJob01Enum = Profession.JOB_LEADER_01;
+			indexForm.reccomendJob02Enum = Profession.JOB_LEADER_02;
 		}
 
 		if (indexForm.comprehensiveType == PersonalityTypes.ENGINEER) {
 			indexForm.reccomendJob01 = Profession.JOB_ENGINEER_01.getJobName();
 			indexForm.reccomendJob02 = Profession.JOB_ENGINEER_02.getJobName();
+			indexForm.reccomendJob01Enum = Profession.JOB_ENGINEER_01;
+			indexForm.reccomendJob02Enum = Profession.JOB_ENGINEER_02;
 		}
 
 		if (indexForm.comprehensiveType == PersonalityTypes.ENTERTAINNR) {
 			indexForm.reccomendJob01 = Profession.JOB_ENTERTAINER_01.getJobName();
 			indexForm.reccomendJob02 = Profession.JOB_ENTERTAINER_02.getJobName();
+			indexForm.reccomendJob01Enum = Profession.JOB_ENTERTAINER_01;
+			indexForm.reccomendJob02Enum = Profession.JOB_ENTERTAINER_02;
 		}
 
 		if (indexForm.comprehensiveType == PersonalityTypes.CREATOR) {
 			indexForm.reccomendJob01 = Profession.JOB_CREATOR_01.getJobName();
 			indexForm.reccomendJob02 = Profession.JOB_CREATOR_02.getJobName();
+			indexForm.reccomendJob01Enum = Profession.JOB_CREATOR_01;
+			indexForm.reccomendJob02Enum = Profession.JOB_CREATOR_02;
 		}
+	}
+
+	/**
+	 * 表示するおすすめ職業の画像リンクをセットする
+	 */
+	private void setReccomendJobsPicLink() {
+		// 文字列の生成
+		StringBuilder sb01 = new StringBuilder();
+		sb01.append("<a href=\"");
+		sb01.append("https://www.qualysite.co.jp"); // リンクが決まったら、変更。仮でクオリ入れている。
+		sb01.append("\"><img src=\"/trad_diag/img/");
+		sb01.append(indexForm.reccomendJob01Enum.getFileName());    // ファイル名
+		sb01.append(".png\" alt=\"サンプル\"></a>");
+
+		StringBuilder sb02 = new StringBuilder();
+		sb01.append("<a href=\"");
+		sb01.append("https://www.qualysite.co.jp"); // リンクが決まったら、変更。仮でクオリ入れている。
+		sb01.append("\"><img src=\"/trad_diag/img/");
+		sb01.append(indexForm.reccomendJob02Enum.getFileName());    // ファイル名
+		sb01.append(".png\" alt=\"サンプル2\"></a>");
+
+		// リンクとファイル名をセット
+		String reccomendJobPicLink01 =  sb01.toString();
+		indexForm.reccomendJobPicLink01 = reccomendJobPicLink01;
+
+		String reccomendJobPicLink02 =  sb02.toString();
+		indexForm.reccomendJobPicLink02 = reccomendJobPicLink02;
 	}
 }

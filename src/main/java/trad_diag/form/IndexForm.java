@@ -1,11 +1,12 @@
 package trad_diag.form;
 
 import trad_diag.entity.PersonalityTypes;
+import trad_diag.entity.Profession;
 import trad_diag.entity.TdModuleId;
 
 /**
  * IndexForm.java
- * 
+ *
  * @author 2018/06/17 New GOTO
  */
 public class IndexForm {
@@ -24,9 +25,17 @@ public class IndexForm {
 
 	/** 職業1 */
 	public String reccomendJob01;
+	public Profession reccomendJob01Enum;
 
 	/** 職業2 */
 	public String reccomendJob02;
+	public Profession reccomendJob02Enum;
+
+	/** 職業1の画像リンク */
+	public String reccomendJobPicLink01;
+
+	/** 職業2の画像リンク */
+	public String reccomendJobPicLink02;
 
 	/** 回答1 */
 	public String answer01;
