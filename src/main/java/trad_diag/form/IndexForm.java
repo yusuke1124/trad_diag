@@ -37,6 +37,12 @@ public class IndexForm {
 	/** 職業2の画像リンク */
 	public String reccomendJobPicLink02;
 
+	/** 職業1の画像ファイル名 */
+	public String jobImgFileNm01;
+
+	/** 職業2の画像ファイル名 */
+	public String jobImgFileNm02;
+
 	/** 回答1 */
 	public String answer01;
 

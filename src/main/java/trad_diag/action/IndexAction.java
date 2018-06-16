@@ -211,6 +211,8 @@ public class IndexAction {
 	 * 表示するおすすめ職業の画像リンクをセットする
 	 */
 	private void setReccomendJobsPicLink() {
+
+		// TODO GOTO ここ、jspに起こしたときおかしいから直したい。。けどもう遅いから寝る
 		// 文字列の生成
 		StringBuilder sb01 = new StringBuilder();
 		sb01.append("<a href=\"");
