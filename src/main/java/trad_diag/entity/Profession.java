@@ -20,8 +20,8 @@ public enum Profession {
 	JOB_ENTERTAINER_02("ばんえい競馬", "entertainer_02"),
 
 	// クリエイター型に紐付いた職業
-	JOB_CREATOR_01("にぶたにいた職人", "creator_01"),
-	JOB_CREATOR_02("にぶたにいた職人", "creator_02")
+	JOB_CREATOR_01("小樽でガラス職人", "creator_01"),
+	JOB_CREATOR_02("木彫りの熊職人", "creator_02")
 	;
 
 	// フィールド変数

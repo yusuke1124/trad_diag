@@ -157,19 +157,17 @@ public class IndexAction {
 	/**
 	 * 縦軸と横軸から、総合タイプをセットする
 	 */
-	public void setPersonality() {
-		indexForm.comprehensiveType = PersonalityTypes.CREATOR;
+	private void setPersonality() {
 
+		indexForm.comprehensiveType = PersonalityTypes.CREATOR;
 		//横軸判定
 		if (indexForm.particular == PersonalityTypes.CONCRETE) {
 			indexForm.comprehensiveType = PersonalityTypes.ENGINEER;
-
 			// 縦軸判定
 			if (indexForm.sociability == PersonalityTypes.EXTROVERT) {
 				indexForm.comprehensiveType = PersonalityTypes.LEADER;
 			}
 		}
-
 		// 縦軸判定
 		if (indexForm.sociability == PersonalityTypes.EXTROVERT) {
 			indexForm.comprehensiveType = PersonalityTypes.ENTERTAINNR;
@@ -217,14 +215,14 @@ public class IndexAction {
 		StringBuilder sb01 = new StringBuilder();
 		sb01.append("<a href=\"");
 		sb01.append("https://www.qualysite.co.jp"); // リンクが決まったら、変更。仮でクオリ入れている。
-		sb01.append("\"><img src=\"/trad_diag/img/");
+		sb01.append("\"><img src=\"/trad_diag/img/job/");
 		sb01.append(indexForm.reccomendJob01Enum.getFileName());    // ファイル名
 		sb01.append(".png\" alt=\"サンプル\"></a>");
 
 		StringBuilder sb02 = new StringBuilder();
 		sb01.append("<a href=\"");
 		sb01.append("https://www.qualysite.co.jp"); // リンクが決まったら、変更。仮でクオリ入れている。
-		sb01.append("\"><img src=\"/trad_diag/img/");
+		sb01.append("\"><img src=\"/trad_diag/img/job/");
 		sb01.append(indexForm.reccomendJob02Enum.getFileName());    // ファイル名
 		sb01.append(".png\" alt=\"サンプル2\"></a>");
 
