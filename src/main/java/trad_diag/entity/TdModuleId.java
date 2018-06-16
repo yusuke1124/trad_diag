@@ -14,12 +14,22 @@ public enum TdModuleId {
 	DETAIL("DETAIL", "/detail")
 	;
 
+	// フィールド変数
+	private String code;
+	private String context;
+
+	// コンストラクタ
 	private TdModuleId(String code, String context) {
 		this.code = code;
 		this.context = context;
 	}
-	
-	String code;
-	String context;
-	
+
+	// ゲッタ
+	public String getCode() {
+		return this.code;
+	}
+	public String getContext() {
+		return this.context;
+	}
+
 }

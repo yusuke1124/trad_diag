@@ -5,22 +5,30 @@ import javax.annotation.Resource;
 import org.seasar.struts.annotation.ActionForm;
 import org.seasar.struts.annotation.Execute;
 
+import trad_diag.entity.PersonalityTypes;
+import trad_diag.entity.Profession;
 import trad_diag.entity.TdModuleId;
 import trad_diag.form.IndexForm;
 
 /**
  * IndexAction.java
  *   プロトタイプだから1つのアクションで設計。。
- * 
+ *
  * @author 2018/06/17 New GOTO
  */
 public class IndexAction {
 
+	//------------------------------------------
+	// DI
+	//------------------------------------------
 	/** IndexForm */
 	@ActionForm
 	@Resource
 	public IndexForm indexForm;
 
+	//------------------------------------------
+	// 実行メソッド
+	//------------------------------------------
 	/**
 	 * TOPページを表示
 	 * @return TOP
@@ -62,23 +70,32 @@ public class IndexAction {
 	public String result() {
 		
 		//---------------------------------------------
-		// 社交性とこだわり度を計算
+		// 総合タイプを分析する
 		//---------------------------------------------
-		indexForm.sociability = 
-				calcSociability(indexForm.answer01,
-								indexForm.answer02,
-								indexForm.answer03,
-								indexForm.answer04,
-								indexForm.answer05
-								);
+		// 縦軸判定
+		setSociability(indexForm.answer01,
+						indexForm.answer02,
+						indexForm.answer03,
+						indexForm.answer04,
+						indexForm.answer05
+						);
 
-		indexForm.particular = 
-				calcParticular(indexForm.answer06,
-								indexForm.answer07,
-								indexForm.answer08,
-								indexForm.answer09,
-								indexForm.answer10
-								);
+		// 横軸判定
+		setParticular(indexForm.answer06,
+						indexForm.answer07,
+						indexForm.answer08,
+						indexForm.answer09,
+						indexForm.answer10
+						);
+
+		// 総合タイプをセット！
+		setPersonality();
+
+		//---------------------------------------------
+		// タイプ別おすすめ職業をセット！
+		//---------------------------------------------
+		setReccomendJobs();
+
 		return "result.jsp";
 	}
 
@@ -99,28 +116,91 @@ public class IndexAction {
 	}
 
 	/**
-	 * 社交度を計算する
-	 * @return ret 社交度
+	 * 外向度をセットする
 	 */
-	private int calcSociability(String ans1, String ans2, String ans3, String ans4, String ans5) {
-		int ret = Integer.parseInt(ans1)
-					+ Integer.parseInt(ans2)
-					+ Integer.parseInt(ans3)
-					+ Integer.parseInt(ans4)
-					+ Integer.parseInt(ans5);
-		return ret;
+	private void setSociability(String ans1, String ans2, String ans3, String ans4, String ans5) {
+		int sociability = Integer.parseInt(ans1)
+							+ Integer.parseInt(ans2)
+							+ Integer.parseInt(ans3)
+							+ Integer.parseInt(ans4)
+							+ Integer.parseInt(ans5);
+
+		// スコアから縦軸の傾向を判定
+		indexForm.sociability = PersonalityTypes.INTROVERT;
+		if (sociability >= 0) {
+			indexForm.sociability = PersonalityTypes.EXTROVERT;
+		}
 	}
 
 	/**
-	 * こだわり度を計算する
-	 * @return ret こだわり度
+	 * 具象度をセットする
 	 */
-	private int calcParticular(String ans1, String ans2, String ans3, String ans4, String ans5) {
-		int ret = Integer.parseInt(ans1)
+	private void setParticular(String ans1, String ans2, String ans3, String ans4, String ans5) {
+		int particular = Integer.parseInt(ans1)
 					+ Integer.parseInt(ans2)
 					+ Integer.parseInt(ans3)
 					+ Integer.parseInt(ans4)
 					+ Integer.parseInt(ans5);
-		return ret;
+
+		// スコアから横軸の傾向を判定
+		indexForm.particular = PersonalityTypes.ABSTRACT;
+		if (particular >= 0) {
+			indexForm.particular = PersonalityTypes.CONCRETE;
+		}
+	}
+
+	/**
+	 * 縦軸と横軸から、総合タイプをセットする
+	 */
+	public void setPersonality() {
+		indexForm.comprehensiveType = PersonalityTypes.IDEAL;
+
+		//横軸判定
+		if (indexForm.particular == PersonalityTypes.CONCRETE) {
+			indexForm.comprehensiveType = PersonalityTypes.LAW;
+
+			// 縦軸判定
+			if (indexForm.sociability == PersonalityTypes.EXTROVERT) {
+				indexForm.comprehensiveType = PersonalityTypes.COMMANDER;
+			}
+		}
+
+		// 縦軸判定
+		if (indexForm.sociability == PersonalityTypes.EXTROVERT) {
+			indexForm.comprehensiveType = PersonalityTypes.ATTENTION;
+		}
+	}
+
+	/**
+	 * 表示するおすすめ職業をセットする
+	 */
+	private void setReccomendJobs() {
+		if (indexForm.comprehensiveType == PersonalityTypes.COMMANDER) {
+			indexForm.reccomendJob01 = Profession.JOB_COMMANDER_01.getJobName();
+			indexForm.reccomendJob02 = Profession.JOB_COMMANDER_02.getJobName();
+			indexForm.reccomendJob03 = Profession.JOB_COMMANDER_03.getJobName();
+			indexForm.reccomendJob04 = Profession.JOB_COMMANDER_04.getJobName();
+		}
+
+		if (indexForm.comprehensiveType == PersonalityTypes.LAW) {
+			indexForm.reccomendJob01 = Profession.JOB_LAW_01.getJobName();
+			indexForm.reccomendJob02 = Profession.JOB_LAW_02.getJobName();
+			indexForm.reccomendJob03 = Profession.JOB_LAW_03.getJobName();
+			indexForm.reccomendJob04 = Profession.JOB_LAW_04.getJobName();
+		}
+
+		if (indexForm.comprehensiveType == PersonalityTypes.ATTENTION) {
+			indexForm.reccomendJob01 = Profession.JOB_ATTENTION_01.getJobName();
+			indexForm.reccomendJob02 = Profession.JOB_ATTENTION_02.getJobName();
+			indexForm.reccomendJob03 = Profession.JOB_ATTENTION_03.getJobName();
+			indexForm.reccomendJob04 = Profession.JOB_ATTENTION_04.getJobName();
+		}
+
+		if (indexForm.comprehensiveType == PersonalityTypes.IDEAL) {
+			indexForm.reccomendJob01 = Profession.JOB_IDEAL_01.getJobName();
+			indexForm.reccomendJob02 = Profession.JOB_IDEAL_02.getJobName();
+			indexForm.reccomendJob03 = Profession.JOB_IDEAL_03.getJobName();
+			indexForm.reccomendJob04 = Profession.JOB_IDEAL_04.getJobName();
+		}
 	}
 }

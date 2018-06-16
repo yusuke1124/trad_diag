@@ -1,5 +1,6 @@
 package trad_diag.form;
 
+import trad_diag.entity.PersonalityTypes;
 import trad_diag.entity.TdModuleId;
 
 /**
@@ -12,14 +13,26 @@ public class IndexForm {
 	/** モジュールID */
 	public TdModuleId tdModuleId;
 
-	/** 名前 */
-	public String name;
-
 	/** 社交度 */
-	public int sociability;
+	public PersonalityTypes sociability;
 
 	/** こだわり度 */
-	public int particular;
+	public PersonalityTypes particular;
+
+	/** 総合タイプ */
+	public PersonalityTypes comprehensiveType;
+
+	/** 職業1 */
+	public String reccomendJob01;
+
+	/** 職業2 */
+	public String reccomendJob02;
+
+	/** 職業3 */
+	public String reccomendJob03;
+
+	/** 職業4 */
+	public String reccomendJob04;
 
 	/** 回答1 */
 	public String answer01;

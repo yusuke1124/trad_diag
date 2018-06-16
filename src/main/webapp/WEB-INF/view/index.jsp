@@ -10,9 +10,7 @@
 	</head>
 	<body>
 		<h2>TOPページだよ</h2>
-		<form>
-			名前を入れてね
-			<input type="text" name="name" value="" /><br />
+		<form method="post">
 			<input type="submit" name="question01" value="質問ページへ" />
 			<%-- 保持しておく情報たち --%>
 		</form>
