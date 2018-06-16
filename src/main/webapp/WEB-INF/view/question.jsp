@@ -13,6 +13,10 @@
 				background-repeat:no-repeat;
 				text-align: center;
 			}
+			.submit_button {
+				width:150px;
+				height:50px;
+			}
 		-->
 		</style>
 	</head>
@@ -81,7 +85,7 @@
 				<input type="radio" name="answer05" value="-2">
 				そう思わない
 				<br /><br />
-				<input type="submit" name="question02" value="質問ページ2へ" />
+				<input class="submit_button" type="submit" name="question02" value="質問ページ2へ" />
 			</c:if>
 			</c:if>
 
@@ -89,7 +93,7 @@
 			<c:if test="${tdModuleId == 'QUESTION_02'}" var="isQestion02">
 			<c:if test="${isQestion02}">
 				<br />
-				質問6<br />
+				旅行に行く際には事前に計画をたてるほうだ<br />
 				そう思う
 				<input type="radio" name="answer06" value="2">
 				<input type="radio" name="answer06" value="1">
@@ -98,7 +102,7 @@
 				<input type="radio" name="answer06" value="-2">
 				そう思わない
 				<br /><br />
-				質問7<br />
+				アイデアよりも、「もの」に価値があると考える<br />
 				そう思う
 				<input type="radio" name="answer07" value="2">
 				<input type="radio" name="answer07" value="1">
@@ -107,7 +111,7 @@
 				<input type="radio" name="answer07" value="-2">
 				そう思わない
 				<br /><br />
-				質問8<br />
+				より重視しているのは、直感やインスピレーションより事実と正確な情報だ<br />
 				そう思う
 				<input type="radio" name="answer08" value="2">
 				<input type="radio" name="answer08" value="1">
@@ -116,7 +120,7 @@
 				<input type="radio" name="answer08" value="-2">
 				そう思わない
 				<br /><br />
-				質問9<br />
+				自分の感情をコントロールできる<br />
 				そう思う
 				<input type="radio" name="answer09" value="2">
 				<input type="radio" name="answer09" value="1">
@@ -125,7 +129,7 @@
 				<input type="radio" name="answer09" value="-2">
 				そう思わない
 				<br /><br />
-				質問10<br />
+				みんなが良いと言っているものでも、鵜呑みにはしない。<br />
 				そう思う
 				<input type="radio" name="answer10" value="2">
 				<input type="radio" name="answer10" value="1">
@@ -134,10 +138,10 @@
 				<input type="radio" name="answer10" value="-2">
 				そう思わない
 				<br /><br />
-				<input type="submit" name="result" value="結果ページへ" />
+				<input class="submit_button" type="submit" name="result" value="結果ページへ" />
 			</c:if>
 			</c:if>
-	
+
 			<%-- 保持しておく情報たち --%>
 			<input type="hidden" name="answer01" value="${answer01}" />
 			<input type="hidden" name="answer02" value="${answer02}" />
