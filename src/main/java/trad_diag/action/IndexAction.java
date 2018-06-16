@@ -153,21 +153,21 @@ public class IndexAction {
 	 * 縦軸と横軸から、総合タイプをセットする
 	 */
 	public void setPersonality() {
-		indexForm.comprehensiveType = PersonalityTypes.IDEAL;
+		indexForm.comprehensiveType = PersonalityTypes.CREATOR;
 
 		//横軸判定
 		if (indexForm.particular == PersonalityTypes.CONCRETE) {
-			indexForm.comprehensiveType = PersonalityTypes.LAW;
+			indexForm.comprehensiveType = PersonalityTypes.ENGINEER;
 
 			// 縦軸判定
 			if (indexForm.sociability == PersonalityTypes.EXTROVERT) {
-				indexForm.comprehensiveType = PersonalityTypes.COMMANDER;
+				indexForm.comprehensiveType = PersonalityTypes.LEADER;
 			}
 		}
 
 		// 縦軸判定
 		if (indexForm.sociability == PersonalityTypes.EXTROVERT) {
-			indexForm.comprehensiveType = PersonalityTypes.ATTENTION;
+			indexForm.comprehensiveType = PersonalityTypes.ENTERTAINNR;
 		}
 	}
 
@@ -175,32 +175,24 @@ public class IndexAction {
 	 * 表示するおすすめ職業をセットする
 	 */
 	private void setReccomendJobs() {
-		if (indexForm.comprehensiveType == PersonalityTypes.COMMANDER) {
-			indexForm.reccomendJob01 = Profession.JOB_COMMANDER_01.getJobName();
-			indexForm.reccomendJob02 = Profession.JOB_COMMANDER_02.getJobName();
-			indexForm.reccomendJob03 = Profession.JOB_COMMANDER_03.getJobName();
-			indexForm.reccomendJob04 = Profession.JOB_COMMANDER_04.getJobName();
+		if (indexForm.comprehensiveType == PersonalityTypes.LEADER) {
+			indexForm.reccomendJob01 = Profession.JOB_LEADER_01.getJobName();
+			indexForm.reccomendJob02 = Profession.JOB_LEADER_02.getJobName();
 		}
 
-		if (indexForm.comprehensiveType == PersonalityTypes.LAW) {
-			indexForm.reccomendJob01 = Profession.JOB_LAW_01.getJobName();
-			indexForm.reccomendJob02 = Profession.JOB_LAW_02.getJobName();
-			indexForm.reccomendJob03 = Profession.JOB_LAW_03.getJobName();
-			indexForm.reccomendJob04 = Profession.JOB_LAW_04.getJobName();
+		if (indexForm.comprehensiveType == PersonalityTypes.ENGINEER) {
+			indexForm.reccomendJob01 = Profession.JOB_ENGINEER_01.getJobName();
+			indexForm.reccomendJob02 = Profession.JOB_ENGINEER_02.getJobName();
 		}
 
-		if (indexForm.comprehensiveType == PersonalityTypes.ATTENTION) {
-			indexForm.reccomendJob01 = Profession.JOB_ATTENTION_01.getJobName();
-			indexForm.reccomendJob02 = Profession.JOB_ATTENTION_02.getJobName();
-			indexForm.reccomendJob03 = Profession.JOB_ATTENTION_03.getJobName();
-			indexForm.reccomendJob04 = Profession.JOB_ATTENTION_04.getJobName();
+		if (indexForm.comprehensiveType == PersonalityTypes.ENTERTAINNR) {
+			indexForm.reccomendJob01 = Profession.JOB_ENTERTAINER_01.getJobName();
+			indexForm.reccomendJob02 = Profession.JOB_ENTERTAINER_02.getJobName();
 		}
 
-		if (indexForm.comprehensiveType == PersonalityTypes.IDEAL) {
-			indexForm.reccomendJob01 = Profession.JOB_IDEAL_01.getJobName();
-			indexForm.reccomendJob02 = Profession.JOB_IDEAL_02.getJobName();
-			indexForm.reccomendJob03 = Profession.JOB_IDEAL_03.getJobName();
-			indexForm.reccomendJob04 = Profession.JOB_IDEAL_04.getJobName();
+		if (indexForm.comprehensiveType == PersonalityTypes.CREATOR) {
+			indexForm.reccomendJob01 = Profession.JOB_CREATOR_01.getJobName();
+			indexForm.reccomendJob02 = Profession.JOB_CREATOR_02.getJobName();
 		}
 	}
 }

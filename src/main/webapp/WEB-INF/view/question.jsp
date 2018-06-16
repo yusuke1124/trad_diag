@@ -6,16 +6,37 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<title>Question</title>
+		<style type="text/css">
+		<!--
+			BODY {
+				background-size:contain;
+				background-repeat:no-repeat;
+				text-align: center;
+			}
+		-->
+		</style>
 	</head>
-	<body>
-		<h2>質問ページだよ</h2>
+
+	<%-- bodyタグの出し分け --%>
+	<c:if test="${tdModuleId == 'QUESTION_01'}" var="isQestion01">
+	<c:if test="${isQestion01}">
+		<body background="/trad_diag/img/background/question1.png">
+	</c:if>
+	</c:if>
+	<c:if test="${tdModuleId == 'QUESTION_02'}" var="isQestion02">
+	<c:if test="${isQestion02}">
+		<body background="/trad_diag/img/background/question2.png">
+	</c:if>
+	</c:if>
+		<br /><br /><br /><br />
+		<h2>Question</h2>
+		<br /><br />
 		<form method="post">
 			<%-- 質問ページ1 --%>
 			<c:if test="${tdModuleId == 'QUESTION_01'}" var="isQestion01">
 			<c:if test="${isQestion01}">
-				１つめの質問ページだよ<br />
 				<br />
-				質問1&nbsp;&nbsp;&nbsp;&nbsp;
+				人を紹介するより、紹介されるほうが好き<br />
 				そう思う
 				<input type="radio" name="answer01" value="2">
 				<input type="radio" name="answer01" value="1">
@@ -23,8 +44,8 @@
 				<input type="radio" name="answer01" value="-1">
 				<input type="radio" name="answer01" value="-2">
 				そう思わない
-				<br />
-				質問2&nbsp;&nbsp;&nbsp;&nbsp;
+				<br /><br />
+				前もって考えなくても、話したり行動したりできる<br />
 				そう思う
 				<input type="radio" name="answer02" value="2">
 				<input type="radio" name="answer02" value="1">
@@ -32,8 +53,8 @@
 				<input type="radio" name="answer02" value="-1">
 				<input type="radio" name="answer02" value="-2">
 				そう思わない
-				<br />
-				質問3&nbsp;&nbsp;&nbsp;&nbsp;
+				<br /><br />
+				きちんとした形になっていなくても、自分の作品やアイデアを積極的に他人に披露したいと思う<br />
 				そう思う
 				<input type="radio" name="answer03" value="2">
 				<input type="radio" name="answer03" value="1">
@@ -41,8 +62,8 @@
 				<input type="radio" name="answer03" value="-1">
 				<input type="radio" name="answer03" value="-2">
 				そう思わない
-				<br />
-				質問4&nbsp;&nbsp;&nbsp;&nbsp;
+				<br /><br />
+				ひとりでじっくり考えるよりも、人に話しながら考える<br />
 				そう思う
 				<input type="radio" name="answer04" value="2">
 				<input type="radio" name="answer04" value="1">
@@ -50,8 +71,8 @@
 				<input type="radio" name="answer04" value="-1">
 				<input type="radio" name="answer04" value="-2">
 				そう思わない
-				<br />
-				質問5&nbsp;&nbsp;&nbsp;&nbsp;
+				<br /><br />
+				メールよりも電話派である<br />
 				そう思う
 				<input type="radio" name="answer05" value="2">
 				<input type="radio" name="answer05" value="1">
@@ -59,7 +80,7 @@
 				<input type="radio" name="answer05" value="-1">
 				<input type="radio" name="answer05" value="-2">
 				そう思わない
-				<br />
+				<br /><br />
 				<input type="submit" name="question02" value="質問ページ2へ" />
 			</c:if>
 			</c:if>
@@ -67,9 +88,8 @@
 			<%-- 質問ページ2 --%>
 			<c:if test="${tdModuleId == 'QUESTION_02'}" var="isQestion02">
 			<c:if test="${isQestion02}">
-				２つめの質問ページだよ<br />
 				<br />
-				質問6&nbsp;&nbsp;&nbsp;&nbsp;
+				質問6<br />
 				そう思う
 				<input type="radio" name="answer06" value="2">
 				<input type="radio" name="answer06" value="1">
@@ -77,8 +97,8 @@
 				<input type="radio" name="answer06" value="-1">
 				<input type="radio" name="answer06" value="-2">
 				そう思わない
-				<br />
-				質問7&nbsp;&nbsp;&nbsp;&nbsp;
+				<br /><br />
+				質問7<br />
 				そう思う
 				<input type="radio" name="answer07" value="2">
 				<input type="radio" name="answer07" value="1">
@@ -86,8 +106,8 @@
 				<input type="radio" name="answer07" value="-1">
 				<input type="radio" name="answer07" value="-2">
 				そう思わない
-				<br />
-				質問8&nbsp;&nbsp;&nbsp;&nbsp;
+				<br /><br />
+				質問8<br />
 				そう思う
 				<input type="radio" name="answer08" value="2">
 				<input type="radio" name="answer08" value="1">
@@ -95,8 +115,8 @@
 				<input type="radio" name="answer08" value="-1">
 				<input type="radio" name="answer08" value="-2">
 				そう思わない
-				<br />
-				質問9&nbsp;&nbsp;&nbsp;&nbsp;
+				<br /><br />
+				質問9<br />
 				そう思う
 				<input type="radio" name="answer09" value="2">
 				<input type="radio" name="answer09" value="1">
@@ -104,8 +124,8 @@
 				<input type="radio" name="answer09" value="-1">
 				<input type="radio" name="answer09" value="-2">
 				そう思わない
-				<br />
-				質問10&nbsp;&nbsp;
+				<br /><br />
+				質問10<br />
 				そう思う
 				<input type="radio" name="answer10" value="2">
 				<input type="radio" name="answer10" value="1">
@@ -113,7 +133,7 @@
 				<input type="radio" name="answer10" value="-1">
 				<input type="radio" name="answer10" value="-2">
 				そう思わない
-				<br />
+				<br /><br />
 				<input type="submit" name="result" value="結果ページへ" />
 			</c:if>
 			</c:if>

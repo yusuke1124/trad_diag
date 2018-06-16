@@ -16,10 +16,10 @@ public enum PersonalityTypes {
 	CONCRETE("具体的"),
 
 	// 総合結果の4タイプ
-	COMMANDER("司令型"),
-	LAW("法則型"),
-	ATTENTION("注目型"),
-	IDEAL("理想型")
+	LEADER("リーダー型"),              // 外向×具体
+	ENGINEER("エンジニア型"),          // 内向×具体
+	ENTERTAINNR("エンターテイナー型"),  // 外向×抽象
+	CREATOR("クリエイター型")          // 内向×抽象
 	;
 
 	// フィールド変数

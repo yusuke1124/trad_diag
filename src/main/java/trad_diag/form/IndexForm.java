@@ -28,12 +28,6 @@ public class IndexForm {
 	/** 職業2 */
 	public String reccomendJob02;
 
-	/** 職業3 */
-	public String reccomendJob03;
-
-	/** 職業4 */
-	public String reccomendJob04;
-
 	/** 回答1 */
 	public String answer01;
 
